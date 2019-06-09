@@ -13,8 +13,9 @@
 class User < ApplicationRecord
   has_secure_password
 
-  validates :password, length: { minimum: 8 }
+  validates :password, length: { minimum: 8 }, if: Proc.new{ |user| user.password.present? || user.new_record? }
   validates :email, uniqueness: true, presence: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
+  validates :username, length: { minimum: 5 }, on: :update
 
   before_create :assign_default_username
 

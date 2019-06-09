@@ -15,14 +15,24 @@ class UserController < ApplicationController
     end
   end
 
-  def update
+  def show
   end
 
-  def show
+  def update
+    if @user.update(user_update_params)
+      flash.now.notice = "Profile changed"
+    else
+      flash.now.alert = "Error when saving user's profile"
+    end
+    render :show
   end
 
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
+  end
+
+  def user_update_params
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end
