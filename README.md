@@ -1,24 +1,34 @@
-# README
+# System dependencies
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- Postgresql 9+
+- Ruby 2.5.1+
 
-Things you may want to cover:
+# Setup
 
-* Ruby version
+- Set environment variable `DATABASE_URL`, ie:
 
-* System dependencies
+```
+export DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
+```
 
-* Configuration
+- Run `bundle install`
 
-* Database creation
+- Run database setup
 
-* Database initialization
+```
+bundle exec rake db:setup
+```
 
-* How to run the test suite
+- Start server
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle exec rails server
+```
 
-* Deployment instructions
+# Test suite
 
-* ...
+To run all of testcases:
+
+```
+bundle exec rails test
+```
