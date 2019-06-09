@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  email           :string           not null
+#  password_digest :string           not null
+#  username        :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#valid_user:
+#  email: valid@email.com
+#  password: 12345678
+#  username: validusername
