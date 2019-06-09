@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  before_action :authenticate, only: [:update, :show]
   def register
     @user = User.new
   end
@@ -17,11 +18,6 @@ class UserController < ApplicationController
   end
 
   def show
-    user_id = session[:user_id]
-    @user = User.find_by(id: user_id)
-    if @user.blank?
-      redirect_to user_register_path 
-    end
   end
 
   private

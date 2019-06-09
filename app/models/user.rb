@@ -18,6 +18,16 @@ class User < ApplicationRecord
 
   before_create :assign_default_username
 
+  def self.authenticate(email:, password: )
+    user = User.find_by(email: email)
+    return false if user.blank?
+    if user.authenticate(password)
+      return user
+    else 
+      return false
+    end
+  end
+
   private
   def assign_default_username
     self.username = self.email.split('@').first

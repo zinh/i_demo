@@ -1,0 +1,9 @@
+<h1>Login</h1>
+
+<%= flash[:alert] -%>
+
+<%= form_tag sessions_create_url, method: :post do -%>
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Login" %>
+<% end -%>
