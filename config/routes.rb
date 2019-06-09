@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'user#show'
+
   controller :sessions do
     get 'login', action: :new, as: :sessions_new
     post 'login', action: :create, as: :sessions_create
