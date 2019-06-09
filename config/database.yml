@@ -12,8 +12,6 @@ test:
   <<: *default
   database: incubit_test
 
-  #production:
-  #  <<: *default
-  #  database: incubit_production
-  #  username: incubit
-  #  password: <%= ENV['INCUBIT_DATABASE_PASSWORD'] %>
+production:
+  <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
