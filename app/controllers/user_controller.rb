@@ -8,6 +8,7 @@ class UserController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      UserMailer.with(user: @user).welcome_email.deliver
       redirect_to user_show_path
     else
       render :register
