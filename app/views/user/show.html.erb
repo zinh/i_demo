@@ -1,0 +1,10 @@
+<h1>Welcome <%= @user.username -%></h1>
+
+<h2>Edit your profile</h2>
+<%= form_for(@user, url: user_update_path, method: :post) do |f| -%>
+  Email: <%= f.text_field :email, disabled: true -%><br/>
+  Username: <%= f.text_field :username -%><br/>
+  Password: <%= f.password_field :password -%><br/>
+  Password confirmation: <%= f.password_field :password_confirmation -%><br/>
+  <%= f.submit -%>
+<% end %>

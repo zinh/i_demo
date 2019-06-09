@@ -53,7 +53,7 @@ class UserTest < ActiveSupport::TestCase
 
   test "default username" do
     @user.email = 'valid@email.com'
-    @user.save
+    @user.save!
     assert_equal 'valid', @user.username
   end
 
