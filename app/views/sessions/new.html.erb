@@ -1,0 +1,14 @@
+<h1>Login</h1>
+
+<% flash.each do |_, v| -%>
+  <%= v %>
+<% end %>
+
+<%= form_tag sessions_create_url, method: :post do -%>
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Login" %>
+<% end -%>
+
+<%= link_to "Forgot password?", forgot_password_path %> | 
+<%= link_to "Register", user_register_path  %>
