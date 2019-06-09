@@ -12,8 +12,8 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get destroy" do
-    get sessions_destroy_url
-    assert_response :success
+    delete sessions_destroy_url
+    assert_response :redirect
   end
 
 end
