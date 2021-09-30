@@ -20,7 +20,7 @@ class UserController < ApplicationController
 
   def update
     if @user.update(user_update_params)
-      flash.now.notice = "Profile changed"
+      flash.now.notice = "Profile changed, please check again"
     else
       flash.now.alert = "Error when saving user's profile"
     end
